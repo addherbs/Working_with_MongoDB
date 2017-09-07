@@ -51,3 +51,28 @@ how to find OR situations:
 [{"status":"dropout"},
 {"gpa":{"$lt": 3.0}} ]},
 {"name":1, "_id":0 }).pretty()
+
+
+
+how to limit search results
+--->  db.testdb.find({"$or":
+[{"status":"dropout"},
+{"gpa":{"$lt": 3.0}} ]},
+{"name":1, "_id":0 }).limit(3).pretty()
+
+how to skip first 3 resuls:
+--->  db.testdb.find({"$or":
+[{"status":"dropout"},
+{"gpa":{"$lt": 3.0}} ]},
+{"name":1, "_id":0 }).skip(3).pretty()
+
+
+how to sort according to something:
+--->  db.testdb.find({"$or":
+[{"status":"dropout"},
+{"gpa":{"$lt": 3.0}} ]},
+{"name":1, "_id":0 }).sort({"name":1}).pretty()
+
+
+How to use $not to find every gpa not greater then 3.0
+-->db.testdb.find({"gpa": {$not : {$gt : 3.0}}}, {"name" : 1, "_id" : 0})
