@@ -28,3 +28,26 @@ How to find certain specifications:
 
 
 --> db.testdb.find({"state": "WA", "sex": "M"}, { "name": 1, "dob": 1, "_id":0 }).pretty() ----> No ID
+
+
+
+How to find range "greater than equal" and "less than equal":
+--> db.testdb.find({"gpa": { "$gte": 3.0, "$lte": 3.5}},
+          {"name":1 , "gpa":1, "_id":0})    --> gives between gpa range and only name and gpa
+
+how to find not equal a case situation:
+--> db.testdb.find({"sex":{"$ne":"M"}, "status":"student"}, {"name" :1 , "sex":1 , "_id":0})
+
+
+How to find in any of these "equal to one of these" in array:
+---> db.testdb.find({"gpa": {"$in": [3.5,3.7]}},
+      {"name":1 , "gpa": 1, "_id":0})
+
+HOw to find not in array:
+-->  db.testdb.find({"gpa": {"$nin": [3.5,3.7]}},{"name":1 , "gpa": 1, "_id":0})
+
+how to find OR situations:
+--> db.testdb.find({"$or":
+[{"status":"dropout"},
+{"gpa":{"$lt": 3.0}} ]},
+{"name":1, "_id":0 }).pretty()
