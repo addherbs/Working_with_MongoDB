@@ -1,0 +1,68 @@
+Set path in environment variable
+
+Open two CMD's
+CMD 1: mongod
+
+CMD 2:
+Commands:
+mongo
+show dbs -> shows databases
+use test_1 -> changes databases and creates a new one if it doesn't exist
+
+
+
+How to write an object:
+objectName = { "name" : "Aditya",
+"date" : new Date(),
+"profession" : "student"
+}   -> Object created
+
+Can use javascript in mongo console
+Ex: function sum(number){
+return sum + sum;
+}
+
+sum (2) - > 4
+
+
+
+How to insert into database:
+db.test_1.insert(objectName)
+
+How to get all info from databases:
+db.test_1.find()
+db.test_1.find().pretty()
+
+How to update a database:
+aditya.array = []
+db.test_1.update({"name": "Aditya"}, object)
+db.test_1.find().pretty()
+db.test_1.update({"name": "Aditya"}, {$set:{"name": "Aditya","age":"21"}})
+db.test_2.update({"name": "God"}, {$set:{"name": "Aditya","age":"21"}})
+
+How to increment a value here:
+db.test_2.update({"name": "Aditya"}, {"$inc": {"age":2}})
+db.test_2.update({"name": "Aditya"}, {"$inc": {"age":-4}}) -> decrement
+db.test_2.update({"name": "Aditya"}, {"$mul": {"age":1.5}}) -> multiplication
+
+How to add multiple records and update a single collection object
+db.test_2.update({"name": "Aditya"}, {"$push": {"Address": {
+"city" : "Arlington",
+"State": "Texas",
+"Zip": "76010"
+}}})
+
+how to drop a dabaser:
+use mydb; 
+db.dropDatabase();
+
+
+How to remove:
+db.test_1.remove({"name": "Aditya"})
+
+
+Object Id: 24 hex chars:
+1-8 -> Time stamp, when it was created
+9-14 -> Unique ID of comp that generated
+15-18 -> Uni ID for process of comp
+19-24 -> Incrementing num for each generated ID
