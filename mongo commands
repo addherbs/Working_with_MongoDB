@@ -10,12 +10,12 @@ show dbs -> shows databases
 use test_1 -> changes databases and creates a new one if it doesn't exist
 
 
-
 How to write an object:
 objectName = { "name" : "Aditya",
 "date" : new Date(),
 "profession" : "student"
 }   -> Object created
+
 
 Can use javascript in mongo console
 Ex: function sum(number){
