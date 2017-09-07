@@ -76,3 +76,19 @@ how to sort according to something:
 
 How to use $not to find every gpa not greater then 3.0
 -->db.testdb.find({"gpa": {$not : {$gt : 3.0}}}, {"name" : 1, "_id" : 0})
+
+
+
+getting a certain index value that is 0th index:
+--> db.testdb.find({"tests.0": 10}, {"name": 1, "_id":0})
+
+
+Adding a value to an array or anything updating it:
+--> db.testdb.update({"name": "Dale Cooper"}, {"$push": {"tests": 9}})
+
+Checking size of the array:
+--> db.testdb.find({"tests": {"$size": 4}}, {"name":1, "_id":0})
+
+
+How to go nested search:
+---> db.testdb.find({"name": "Dale Cooper"}, {"contact info.email":1, "name": 1, "_id":0} )
