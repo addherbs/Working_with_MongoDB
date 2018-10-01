@@ -17,7 +17,7 @@ objectName = { "name" : "Aditya",
 
 Can use javascript in mongo console
 Ex: function sum(number){
-return sum + sum;
+return number + number;
 }
 
 sum (2) - > 4
